@@ -35,6 +35,8 @@ const AdministracaoRestaurantes = () => {
             <TableCell>Nome do Restaurante</TableCell>
             <TableCell>Editar</TableCell>
             <TableCell>Deletar</TableCell>
+            <TableCell>Editar</TableCell>
+            <TableCell>Deletar</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -42,6 +44,12 @@ const AdministracaoRestaurantes = () => {
             <TableRow key={restaurante.id}>
               <TableCell>
                 {restaurante.nome}
+              </TableCell>
+              <TableCell>
+                [ <Link to={`/restaurantes/administracao/${restaurante.id}`}>Editar</Link> ]
+              </TableCell>
+              <TableCell>
+                <Button variant="outlined" color="error" onClick={() => excluirRestaurante(restaurante)}>Excluir</Button>
               </TableCell>
               <TableCell>
                 [ <Link to={`/restaurantes/administracao/${restaurante.id}`}>Editar</Link> ]
