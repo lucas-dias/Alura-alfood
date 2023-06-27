@@ -28,40 +28,42 @@ const AdministracaoRestaurantes = () => {
       })
   }
   return (
-    <TableContainer component={Paper}>
-      <Table sx={{ minWidth: 650 }} aria-label="simple table">
-        <TableHead>
-          <TableRow>
-            <TableCell>Nome do Restaurante</TableCell>
-            <TableCell>Editar</TableCell>
-            <TableCell>Deletar</TableCell>
-            <TableCell>Editar</TableCell>
-            <TableCell>Deletar</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {restaurantes.map(restaurante =>
-            <TableRow key={restaurante.id}>
-              <TableCell>
-                {restaurante.nome}
-              </TableCell>
-              <TableCell>
-                [ <Link to={`/restaurantes/administracao/${restaurante.id}`}>Editar</Link> ]
-              </TableCell>
-              <TableCell>
-                <Button variant="outlined" color="error" onClick={() => excluirRestaurante(restaurante)}>Excluir</Button>
-              </TableCell>
-              <TableCell>
-                [ <Link to={`/restaurantes/administracao/${restaurante.id}`}>Editar</Link> ]
-              </TableCell>
-              <TableCell>
-                <Button variant="outlined" color="error" onClick={() => excluirRestaurante(restaurante)}>Excluir</Button>
-              </TableCell>
+    <>
+      <TableContainer component={Paper}>
+        <Table sx={{ minWidth: 650 }} aria-label="simple table">
+          <TableHead>
+            <TableRow>
+              <TableCell>Nome do Restaurante</TableCell>
+              <TableCell>Editar</TableCell>
+              <TableCell>Deletar</TableCell>
+              <TableCell>Editar</TableCell>
+              <TableCell>Deletar</TableCell>
             </TableRow>
-          )}
-        </TableBody>
-      </Table>
-    </TableContainer>
+          </TableHead>
+          <TableBody>
+            {restaurantes.map(restaurante =>
+              <TableRow key={restaurante.id}>
+                <TableCell>
+                  {restaurante.nome}
+                </TableCell>
+                <TableCell>
+                  [ <Link to={`/restaurantes/administracao/${restaurante.id}`}>Editar</Link> ]
+                </TableCell>
+                <TableCell>
+                  <Button variant="outlined" color="error" onClick={() => excluirRestaurante(restaurante)}>Excluir</Button>
+                </TableCell>
+                <TableCell>
+                  [ <Link to={`/restaurantes/administracao/${restaurante.id}`}>Editar</Link> ]
+                </TableCell>
+                <TableCell>
+                  <Button variant="outlined" color="error" onClick={() => excluirRestaurante(restaurante)}>Excluir</Button>
+                </TableCell>
+              </TableRow>
+            )}
+          </TableBody>
+        </Table>
+      </TableContainer>
+    </>
   )
 }
 
