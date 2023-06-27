@@ -5,6 +5,7 @@ import IRestaurante from '../../interfaces/IRestaurante';
 import style from './ListaRestaurantes.module.scss';
 import Restaurante from './Restaurante';
 import { Box, Select } from '@mui/material';
+import v1 from '../../v1';
 
 // esses são os possíveis parâmetros que podemos enviar para a API
 interface IParametrosBusca {
@@ -23,7 +24,7 @@ const ListaRestaurantes = () => {
   // agora, o carregarDados recebe opcionalmente as opções de configuração do axios
   const carregarDados = (url: string, opcoes: AxiosRequestConfig = {}) => {
 
-    axios.get<IPaginacao<IRestaurante>>(url, opcoes)
+    v1.get<IPaginacao<IRestaurante>>(url, opcoes)
       .then(resposta => {
         setRestaurantes(resposta.data.results)
         setProximaPagina(resposta.data.next)
@@ -50,12 +51,12 @@ const ListaRestaurantes = () => {
     if (ordenacao) {
       opcoes.params.ordering = ordenacao
     }
-    carregarDados('http://localhost:8000/api/v1/restaurantes/', opcoes)
+    carregarDados('/restaurantes/', opcoes)
   }
 
   useEffect(() => {
     // obter restaurantes
-    carregarDados('http://localhost:8000/api/v1/restaurantes/')
+    carregarDados('/restaurantes/')
   }, [])
 
   return (<section className={style.ListaRestaurantes}>

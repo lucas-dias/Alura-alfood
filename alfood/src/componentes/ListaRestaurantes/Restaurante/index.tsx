@@ -4,6 +4,7 @@ import Prato from '../Prato';
 import estilos from './Restaurante.module.scss';
 import { useEffect, useState } from 'react';
 import IPrato from '../../../interfaces/IPrato';
+import v1 from '../../../v1';
 
 interface RestauranteProps {
   restaurante: IRestaurante
@@ -12,7 +13,7 @@ interface RestauranteProps {
 const Restaurante = ({ restaurante }: RestauranteProps) => {
   const [pratos, setPratos] = useState<IPrato[]>()
   useEffect(() => {
-    axios.get<IPrato[]>(`http://localhost:8000/api/v1/restaurantes/${restaurante.id}/pratos/`)
+    v1.get<IPrato[]>(`http://localhost:8000/api/v1/restaurantes/${restaurante.id}/pratos/`)
       .then(resposta => {
         setPratos(resposta.data)
       })
