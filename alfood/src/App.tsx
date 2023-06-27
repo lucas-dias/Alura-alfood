@@ -4,6 +4,8 @@ import VitrineRestaurantes from './paginas/VitrineRestaurantes';
 import AdministracaoRestaurantes from './paginas/Administracao/Restaurantes/AdministracaoRestaurantes';
 import FormularioRestaurantes from './paginas/Administracao/Restaurantes/FormularioRestaurantes';
 import AdmDashboard from './paginas/Administracao/AdmDashboard';
+import AdministracaoPratos from './paginas/Administracao/Pratos/AdministracaoPratos';
+import FormularioPratos from './paginas/Administracao/Pratos/FormularioPratos';
 
 function App() {
 
@@ -11,10 +13,13 @@ function App() {
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/restaurantes" element={<VitrineRestaurantes />} />
-      <Route path='/restaurantes/' element={<AdmDashboard />}>
-        <Route path="administracao/" element={<AdministracaoRestaurantes />} />
-        <Route path="administracao/novo" element={<FormularioRestaurantes />} />
-        <Route path="administracao/:id" element={<FormularioRestaurantes />} />
+      <Route path='/administracao/' element={<AdmDashboard />}>
+        <Route path="restaurantes/" element={<AdministracaoRestaurantes />} />
+        <Route path="restaurantes/novo" element={<FormularioRestaurantes />} />
+        <Route path="restaurantes/:id" element={<FormularioRestaurantes />} />
+        <Route path="pratos/" element={<AdministracaoPratos />} />
+        <Route path="pratos/novo" element={<FormularioPratos />} />
+        <Route path="pratos/:id" element={<FormularioPratos />} />
       </Route>
 
     </Routes>

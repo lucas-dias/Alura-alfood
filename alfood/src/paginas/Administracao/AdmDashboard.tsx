@@ -10,11 +10,17 @@ const AdmDashboard = () => {
               Administração
             </Typography>
             <Box sx={{ display: 'flex', flexGrow: '1' }}>
-              <Link component={NavLink} to="/restaurantes/administracao">
+              <Link component={NavLink} to="/administracao/restaurantes/">
                 <Button sx={{ my: 2, color: 'white' }}> Restaurantes</Button>
               </Link>
-              <Link component={NavLink} to="/restaurantes/administracao/novo">
+              <Link component={NavLink} to="/administracao/restaurantes/novo">
                 <Button sx={{ my: 2, color: 'white' }}> Novo Restaurante</Button>
+              </Link>
+              <Link component={NavLink} to="/administracao/pratos/">
+                <Button sx={{ my: 2, color: 'white' }}> Pratos</Button>
+              </Link>
+              <Link component={NavLink} to="/administracao/pratos/novo">
+                <Button sx={{ my: 2, color: 'white' }}> Novo Prato</Button>
               </Link>
             </Box>
           </Toolbar>
