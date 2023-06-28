@@ -8,14 +8,40 @@ import IRestaurante from "../../../interfaces/IRestaurante"
 
 const FormularioPratos = () => {
 
-  // const parametros = useParams()
+  const parametros = useParams()
 
-  // useEffect(() => {
-  //   if (parametros.id) {
-  //     http.get<IPrato>(`pratos/${parametros.id}/`)
-  //       .then(resposta => setNomePrato(resposta.data.nome))
-  //   }
-  // }, [parametros])
+  useEffect(() => {
+    if (parametros.id) {
+      http.get<IPrato>(`pratos/${parametros.id}/`)
+        .then(resposta => {
+          setNomeId(resposta.data.nome.toString())
+        })
+    }
+  }, [parametros])
+
+  // const nomeRestauranteId = () => {
+  //   http.get<IRestaurante>(`restaurantes/${nomeId}`)
+  //     .then(resposta => {
+  //       resNomeId = resposta.data.nome
+  //     })
+  // 
+
+  useEffect(() => {
+    if (parametros.id) {
+      http.get<IPrato>(`pratos/${parametros.id}/`)
+        .then(resposta => {
+          setNomePrato(resposta.data.nome)
+          setDescricao(resposta.data.descricao)
+          setTag(resposta.data.tag)
+          // setRestaurante(resNomeId) - Como settar este nome no momento de editar o prato?
+        })
+    }
+  }, [parametros])
+
+
+
+
+
 
   const [nomePrato, setNomePrato] = useState('')
   const [descricao, setDescricao] = useState('')
@@ -23,6 +49,7 @@ const FormularioPratos = () => {
   const [tag, setTag] = useState('')
   const [restaurantes, setRestaurantes] = useState<IRestaurante[]>([])
   const [restaurante, setRestaurante] = useState('')
+  const [nomeId, setNomeId] = useState('')
   const [imagem, setImagem] = useState<File | null>(null)
 
 
